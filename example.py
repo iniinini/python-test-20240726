@@ -28,8 +28,14 @@ def trib(n):
     >>> trib(16)
     7473
     """
-    pass  # この行を消してから実装を入れてみましょう
-
+def trib(n):
+    if n == 0 or n == 1 or n == 2:
+        return 1
+    trib_numbers = [1, 1, 1]
+    for i in range(3, n + 1):
+        next_trib = trib_numbers[-1] + trib_numbers[-2] + trib_numbers[-3]
+        trib_numbers.append(next_trib)
+    return trib_numbers[n]
 
 # 単純に起動した場合にテストをする
 if __name__ == "__main__":
